@@ -7,6 +7,7 @@ import me.ichun.mods.ichunutil.common.core.event.EventHandlerServer;
 import me.ichun.mods.ichunutil.common.core.network.PacketChannel;
 import me.ichun.mods.ichunutil.common.core.util.EntityHelper;
 import me.ichun.mods.ichunutil.common.core.util.EventCalendar;
+import me.ichun.mods.ichunutil.common.core.util.ResourceHelper;
 import me.ichun.mods.ichunutil.common.entity.EntityBlock;
 import me.ichun.mods.ichunutil.common.iChunUtil;
 import me.ichun.mods.ichunutil.common.packet.mod.*;
@@ -24,6 +25,8 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.oredict.OreDictionary;
 
+import java.io.File;
+
 public class ProxyCommon
 {
     public void preInit()
@@ -36,6 +39,7 @@ public class ProxyCommon
         EntityRegistry.registerModEntity(new ResourceLocation("ichunutil", "entity_block"), EntityBlock.class, "EntityBlock", 500, iChunUtil.instance, 160, 20, true);
 
         iChunUtil.channel = new PacketChannel(iChunUtil.MOD_ID, PacketSession.class, PacketPatronInfo.class, PacketPatrons.class, PacketUserShouldShowUpdates.class, PacketBlockEntityData.class, PacketNewGrabbedEntityId.class, PacketRequestBlockEntityData.class);
+        ResourceHelper.init();
     }
 
     public void init()
@@ -111,6 +115,11 @@ public class ProxyCommon
     }
 
     public void rebuildRecipeTable(){}
+	
+	private static File gameDir = new File(".");  // Honestly just a good guess  - Grissess
+	public File getGameDir() {
+		return gameDir;
+	}
 
     @SideOnly(Side.CLIENT)
     public KeyBind registerKeyBind(KeyBind bind, KeyBind replacing) { return bind; }

@@ -1,6 +1,6 @@
 package me.ichun.mods.ichunutil.common.core.util;
 
-import net.minecraft.client.Minecraft;
+import me.ichun.mods.ichunutil.common.iChunUtil;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -29,12 +29,12 @@ public class ResourceHelper
     private static File fileMods;
     private static File fileConfig;
 
-    @SideOnly(Side.CLIENT)
     public static void init()
     {
-        fileAssets = new File(Minecraft.getMinecraft().gameDir, "assets");
-        fileMods = new File(Minecraft.getMinecraft().gameDir, "mods");
-        fileConfig = new File(Minecraft.getMinecraft().gameDir, "config");
+		File gameDir = iChunUtil.proxy.getGameDir();
+        fileAssets = new File(gameDir, "assets");
+        fileMods = new File(gameDir, "mods");
+        fileConfig = new File(gameDir, "config");
     }
 
     /**
@@ -42,19 +42,16 @@ public class ResourceHelper
      *
      * @return /assets/ folder.
      */
-    @SideOnly(Side.CLIENT)
     public static File getAssetsFolder()
     {
         return fileAssets;
     }
 
-    @SideOnly(Side.CLIENT)
     public static File getModsFolder()
     {
         return fileMods;
     }
 
-    @SideOnly(Side.CLIENT)
     public static File getConfigFolder()
     {
         return fileConfig;

@@ -39,7 +39,6 @@ public class ProxyClient extends ProxyCommon
     public void preInit()
     {
         super.preInit();
-        ResourceHelper.init();
         RendererHelper.init();
 
         File file = new File(ResourceHelper.getConfigFolder(), "ichunutil_keybinds.cfg");
@@ -142,6 +141,11 @@ public class ProxyClient extends ProxyCommon
     {
         return Minecraft.getMinecraft().player;
     }
+
+	@Override
+	public File getGameDir() {
+		return Minecraft.getMinecraft().gameDir;
+	}
 
     @Override
     @SideOnly(Side.CLIENT)

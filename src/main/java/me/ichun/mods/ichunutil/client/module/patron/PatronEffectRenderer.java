@@ -8,7 +8,7 @@ import me.ichun.mods.ichunutil.common.core.util.EntityHelper;
 import me.ichun.mods.ichunutil.common.iChunUtil;
 import me.ichun.mods.ichunutil.common.module.patron.PatronInfo;
 import me.ichun.mods.ichunutil.common.module.worldportals.client.render.WorldPortalRenderer;
-import me.ichun.mods.morph.api.MorphApi;
+// import me.ichun.mods.morph.api.MorphApi;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
@@ -439,6 +439,7 @@ public class PatronEffectRenderer
         EntityPlayer oriPlayer = player;
         if(iChunUtil.hasMorphMod())
         {
+			/*
             EntityLivingBase ent = MorphApi.getApiImpl().getMorphEntity(player.getEntityWorld(), player.getName(), Side.CLIENT);
             if(ent != null) //is morphed
             {
@@ -448,6 +449,8 @@ public class PatronEffectRenderer
                 }
                 player = (EntityPlayer)ent;
             }
+			*/
+			return null;
         }
         PatronInfo info = null;
 

@@ -3,7 +3,7 @@ package me.ichun.mods.ichunutil.client.module.patron;
 import me.ichun.mods.ichunutil.common.core.tracker.EntityTrackerRegistry;
 import me.ichun.mods.ichunutil.common.iChunUtil;
 import me.ichun.mods.ichunutil.common.module.patron.PatronInfo;
-import me.ichun.mods.morph.api.MorphApi;
+// import me.ichun.mods.morph.api.MorphApi;
 import net.minecraft.client.entity.AbstractClientPlayer;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ResourceLocation;
@@ -48,6 +48,7 @@ public class PatronTracker implements EntityTrackerRegistry.IAdditionalTrackerIn
             }
             if(canRender && iChunUtil.hasMorphMod())
             {
+				/*
                 if(MorphApi.getApiImpl().hasMorph(player.getName(), Side.CLIENT))
                 {
                     if(MorphApi.getApiImpl().morphProgress(player.getName(), Side.CLIENT) < 1.0F || !(MorphApi.getApiImpl().getMorphEntity(player.getEntityWorld(), player.getName(), Side.CLIENT) instanceof AbstractClientPlayer))
@@ -59,6 +60,7 @@ public class PatronTracker implements EntityTrackerRegistry.IAdditionalTrackerIn
                         txLocation = ((AbstractClientPlayer)MorphApi.getApiImpl().getMorphEntity(player.getEntityWorld(), player.getName(), Side.CLIENT)).getLocationSkin();
                     }
                 }
+				*/
             }
 
             float f = 0.2617994F;
